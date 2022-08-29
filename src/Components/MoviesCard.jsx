@@ -1,18 +1,25 @@
 import React from "react";
-import { Card, Button,} from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import AddFavourites from "./addFavourites";
+import Details from "./Details";
 
-export default function MoviesCard({
-    movie: { title, description, posterUrl, trailer, rate },
-}) {
+
+export default function MoviesCard(props) {
+   
     return (
         <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={posterUrl} />
+            <Card.Img variant="top" src={props.movie.posterUrl} />
+            <div>
+            <AddFavourites  movie={props.movie }/>
+            </div>
             <Card.Body>
-                <Card.Title>title: {title}</Card.Title>
-                <Card.Text>story: {description}</Card.Text>
-                <Card.Text>trailer: {trailer}</Card.Text>
-                <Card.Text>rating: {rate}</Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Card.Title>title: {props.movie.title}</Card.Title>
+                <Card.Text>rating: {props.movie.rate}</Card.Text>
+                
+
+                
+          
+
             </Card.Body>
         </Card>
     );

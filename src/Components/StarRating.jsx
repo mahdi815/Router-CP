@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import react, { useState } from 'react';
+import Rate from './rate';
 
-const StarRating = () => {
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(0);
-    return (
-      <div className="star-rating">
 
+const Rating = ({rating, setRating}) => {
+
+  const handleRating = (rate) => {
+    setRating(rate)
+  }
+
+  return (
+    <>
+
+      <div className="row">
+        <div className="col text-center">
+          <h2>films</h2>
+          <h2>Rating</h2>
+          <Rate rating={rating} onRating={handleRating} />
+          <p>Rating - {rating}</p>
+          
+        </div>
       </div>
-    );
-  };
+    </>
+  );
+};
 
-export default StarRating;
+export default Rating;
